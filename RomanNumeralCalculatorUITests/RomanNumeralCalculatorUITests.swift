@@ -8,6 +8,7 @@
 
 import XCTest
 
+
 class RomanNumeralCalculatorUITests: XCTestCase {
         
     override func setUp() {
@@ -28,9 +29,21 @@ class RomanNumeralCalculatorUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testOnePlusOne() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
+        let iButton = app.buttons["I"]
+        let calculatedLabel = app.staticTexts["calculated_value"]
+        
+        iButton.tap()
+        XCTAssertEqual(calculatedLabel.label, "I")
+        app.buttons["+"].tap()
+        iButton.tap()
+        XCTAssertEqual(calculatedLabel.label, "II")
+       
+        
     }
     
 }
